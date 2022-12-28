@@ -10,8 +10,9 @@ on:
     paths:
       - cli/jobs/pipelines/nyc-taxi/**
       - .github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml
-      - cli/run-pipeline-jobs.sh
       - cli/setup.sh
+      - cli/run-pipeline-jobs.sh
+      
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +22,7 @@ jobs:
     - name: azure login
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDS}}
+        creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: setup
       run: bash setup.sh
       working-directory: cli
